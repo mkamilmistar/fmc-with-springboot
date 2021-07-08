@@ -57,7 +57,7 @@ public class ProductService {
   public String deleteProduct(String name) throws ExecutionException, InterruptedException {
     Firestore dbFirestore = FirestoreClient.getFirestore();
 
-    ApiFuture<WriteResult> collectionApiFuture = dbFirestore.collection(COLLECTION_NAME).document(name).delete();
+    dbFirestore.collection(COLLECTION_NAME).document(name).delete();
 
     return "Document with Product ID "+ name + " has been deleted successfully";
   }
